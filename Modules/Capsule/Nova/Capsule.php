@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Nova;
+namespace Epigra\Capsule\Nova;
 
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Http\Requests\NovaRequest;
+use App\Nova\Resource;
 
 class Capsule extends Resource
 {
@@ -13,7 +14,8 @@ class Capsule extends Resource
      *
      * @var string
      */
-    public static $model = \App\Models\Capsule::class;
+    public static $model = \Epigra\Capsule\Models\Capsule::class;
+    public static $group = 'Capsule';
 
     /**
      * The single value that should be used to represent the resource when being displayed.

@@ -2,8 +2,14 @@
 
 namespace Epigra\Capsule\Providers;
 
+use DigitalCreative\CollapsibleResourceManager\CollapsibleResourceManager;
+use DigitalCreative\CollapsibleResourceManager\Resources\TopLevelResource;
+use Epigra\Capsule\Nova\Capsule;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Database\Eloquent\Factory;
+use Laravel\Nova\Nova;
+
+
 
 class CapsuleServiceProvider extends ServiceProvider
 {
@@ -51,7 +57,8 @@ class CapsuleServiceProvider extends ServiceProvider
             module_path($this->moduleName, 'Config/config.php') => config_path($this->moduleNameLower . '.php'),
         ], 'config');
         $this->mergeConfigFrom(
-            module_path($this->moduleName, 'Config/config.php'), $this->moduleNameLower
+            module_path($this->moduleName, 'Config/config.php'),
+            $this->moduleNameLower
         );
     }
 
@@ -108,5 +115,23 @@ class CapsuleServiceProvider extends ServiceProvider
             }
         }
         return $paths;
+    }
+
+    public static function registerNova()
+    {
+        Nova::resources(
+            [Capsule::class]
+        );
+
+        Nova::tools([
+            new CollapsibleResourceManager([
+                'navigation' => [
+                    TopLevelResource::make([
+                        'label' => __('Capsules'),
+                        'linkTo' => Capsule::class
+                    ])
+                ]
+            ])
+        ]);
     }
 }

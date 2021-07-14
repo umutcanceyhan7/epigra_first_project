@@ -2,8 +2,10 @@
 
 namespace App\Providers;
 
+use Epigra\Capsule\Providers\CapsuleServiceProvider;
 use Illuminate\Support\Facades\Gate;
 use Laravel\Nova\Cards\Help;
+use Laravel\Nova\Events\ServingNova;
 use Laravel\Nova\Nova;
 use Laravel\Nova\NovaApplicationServiceProvider;
 
@@ -16,6 +18,10 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
      */
     public function boot()
     {
+        Nova::serving(function (ServingNova $event) {
+            CapsuleServiceProvider::registerNova();
+        });
+
         parent::boot();
     }
 
