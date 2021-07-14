@@ -1,0 +1,14 @@
+{
+    "name": "Capsule",
+    "alias": "capsule",
+    "description": "",
+    "keywords": [],
+    "order": 0,
+    "providers": [
+        "Epigra\\Capsule\\Providers\\CapsuleServiceProvider",
+        "Epigra\\Capsule\\Providers\\RepositoryServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}

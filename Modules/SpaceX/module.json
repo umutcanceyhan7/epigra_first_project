@@ -1,0 +1,14 @@
+{
+    "name": "SpaceX",
+    "alias": "spacex",
+    "description": "",
+    "keywords": [],
+    "order": 0,
+    "providers": [
+        "Epigra\\SpaceX\\Providers\\SpaceXServiceProvider",
+        "Epigra\\SpaceX\\Providers\\RepositoryServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}

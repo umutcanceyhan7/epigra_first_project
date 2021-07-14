@@ -1,0 +1,23 @@
+{
+    "name": "epigra/capsule",
+    "description": "",
+    "authors": [
+        {
+            "name": "Uğur Aydoğdu",
+            "email": "ugur.aydogdu@epigra.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [],
+            "aliases": {
+
+            }
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Epigra\\Capsule\\": ""
+        }
+    }
+}
